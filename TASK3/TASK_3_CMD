@@ -1,0 +1,34 @@
+🎯 Task 3
+
+1. Create an AWS EC2 instance 
+2. Configure the instance with Apache Webserver.
+3. Download php application name "WordPress"".
+4. As wordpress stores data at the backend in MySQL
+5. Database server. Therefore, you need to setup a MySQL server using AWS RDS service using Free Tier.
+6. Provide the endpoint/connection string to the
+WordPress application to make it work. 
+
+
+COMMANDS:-
+
+✍ dnf install httpd -y
+
+✍ dnf install wget vim -y
+
+✍ dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
+✍ dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+
+✍ dnf module install php:remi-7.4 
+
+✍ dnf install php-mysqlnd -y
+
+✍ dnf install mysql -y
+
+✍ wget https://wordpress.org/latest.tar.gz
+
+✍ tar -xvzf latest.tar.gz -C /var/www/html
+
+✍ mysql -h endpoint url -u admin -p
+
+FOR MORE INFORMATION:- https://medium.com/@vrushalimahajan54/integrating-wordpress-with-aws-rds-on-aws-cloud-9bd4deeb14e1
