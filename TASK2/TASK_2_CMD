@@ -6,6 +6,8 @@
 ✍ Create an EBS volume of 1 GB.
 ✍ The final step is to attach the above created EBS volume to the instance you created in the previous steps.
 
+MY_BLOG_LINK:- https://www.linkedin.com/pulse/aws-cli-commands-vrushali-mahajan/
+
 
 COMMANDS ON AWS CLI:-
 
