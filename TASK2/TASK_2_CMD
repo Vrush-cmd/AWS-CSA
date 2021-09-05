@@ -1,0 +1,37 @@
+📑Task 2
+
+✍ Create a key pair 
+✍ Create a security group
+✍ Launch an instance using the above created key pair and security group.
+✍ Create an EBS volume of 1 GB.
+✍ The final step is to attach the above created EBS volume to the instance you created in the previous steps.
+
+
+COMMANDS ON AWS CLI:-
+
+🎯 Open your command prompt and run the command: 
+    aws configure
+    
+🎯 Creating the key pair:-
+    aws ec2 create-key-pair --key-name ENTER_YOUR_KEY_NAME
+   
+🎯 Creating a security Group:-
+    aws ec2 create-security-group --group-name MySecurityGroup -- description "My security group" --vpc-id vpc-fe30da95
+    
+🎯 Configuring the Security Group:-
+    aws ec2 authorize-security-group-ingress --group-id sg-04b33f8f53a9485ab --group-name MySecurityGroup --protocol tcp --port 22 --cidr 0.0.0.0/0
+   
+🎯 Launching the instance:-
+    aws ec2 run-instances --image-id ami-00bf4ae5a7909786c --instance-type t2.micro --subnet-id subnet-de3d2eb6 --security-group-ids sg-04b33f8f53a9485ab --key-name TASK2 --count 1
+    
+🎯 Creating an EBS volume of 1GB:-
+    aws ec2 create-volume --availability-zone ap-south-1a --volume-type gp2 --size 1
+    
+🎯 Attaching Volume to the newly launched instance:-
+    aws ec2 attach-volume --volume-id vol-071a1e3740f11161d --instance-id i-0518fac336783722a --device /dev/sdf
+    
+🎯 Detaching the Volume Created:-
+    aws ec2 detach-volume --device /dev/sdf --instance-id i-0518fac336783722a --volume-id vol-071a1e3740f11161d
+    
+🎯 Terminating the Instance Created:-
+    aws ec2 terminate-instances --instance-id i-0518fac336783722a
